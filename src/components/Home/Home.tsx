@@ -2,6 +2,9 @@ import * as _React from 'react';
 import styled from 'styled-components';
 import "../../../static/css/main.css";
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+import {Typography,Box} from '@mui/material';
+import { NavBar } from '../NavBar';
 
 
 const Main=styled('div')({
@@ -11,12 +14,20 @@ const Main=styled('div')({
 })
 
 const Home = () =>{
-    return(
-       <Main>
-            <Button className='btn-color'>
-                <h3 className="main-header">View our Products</h3>
-            </Button>
-        </Main>
+    return(<Box>
+
+        <NavBar></NavBar>
+`       <Main>
+         
+         <Button className='btn-color'>
+             <Typography variant="h3" className="main-header" component={Link} to={"/shop"}>
+                 View our Products
+             </Typography>
+         </Button>
+     </Main>
+    </Box>
+            
+       
     )
 }
 
