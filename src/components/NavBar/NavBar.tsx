@@ -1,12 +1,18 @@
 import * as _React from 'react';
 import styled from 'styled-components';
 import "../../../static/css/main.css";
-// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+// import {  useNavigate } from "react-router-dom";
+// import { Button } from '@mui/material';
 
+// const navigate = useNavigate()
 const NavStyle=styled('div')({
     backgroundColor:"black",
     width:"100%",
-    height:"5em"
+    height:"5em",
+    paddingLeft:"5%",
+    paddingTop:"2%",
+    paddingBottom:"1%",
+    marginLeft:"0px"
 })
 
 // const NavHeader = () =>{
