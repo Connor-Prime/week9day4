@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client'
 // import App from './App.tsx'
 // import { NavBar } from './components/NavBar/NavBar.tsx'
 
-import { Home } from './components/Home/index.ts'
+// import { Home } from './components/Home/index.ts'
 import { NavBar } from './components/NavBar/NavBar.tsx'
 import { Shop } from './components/Shop/index.ts'
-import { Route,Routes,BrowserRouter } from 'react-router-dom'
+// import { Route,Routes,BrowserRouter } from 'react-router-dom'
 
 
   ReactDOM.createRoot(document.getElementById('root')!).render(
@@ -20,7 +20,7 @@ import { Route,Routes,BrowserRouter } from 'react-router-dom'
         </Routes>
       </BrowserRouter> */}
 
-    <Shop/>
+    <Shop username={"Connor"}/>
     {/* <Home/> */}
 
   </React.StrictMode>,

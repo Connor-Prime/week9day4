@@ -6,16 +6,20 @@ import "../../../static/css/main.css";
 
 // const navigate=useNavigate();
 
+
+interface Props{
+    username:string
+}
 const ShopMain=styled('div')({
     color:"black",
     paddingLeft:"10%",
     backgroundColor:"white"
 })
 
-export const Shop = () =>{
+export const Shop = (props:Props) =>{
     return(
        <ShopMain>
-            <h1>Welcome to your Shop</h1>
+            <h1>Welcome to your Shop {props["username"]}</h1>
         </ShopMain>
     )
 }
