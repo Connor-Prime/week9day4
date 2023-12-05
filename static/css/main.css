@@ -1,0 +1,20 @@
+body{
+    background-image: url("../../assets/images/shopImage.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+}
+
+.main-header{
+    text-decoration: double;
+    text-shadow: 3px 3px black;
+    font-size: 3.5em;
+    color: white;
+}
+
+.btn-color{
+    background-color: "rbga(0,0,0,0)";
+}
+
+*{
+    margin-top: 0px;
+}
