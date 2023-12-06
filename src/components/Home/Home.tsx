@@ -12,21 +12,30 @@ const Main=styled('div')({
     marginTop:"15%"
 })
 
-
-
 const Home = () =>{
-    return(<Box>
+    const myAuth = localStorage.getItem('auth') // ADD THIS
 
-        <NavBar></NavBar>
-`       <Main>
-             <Typography variant="h3" class ="MainButton" component={Link} to={"/shop"}>
-                 View our Products
-             </Typography>
-     </Main>
-    </Box>
-            
-       
-    )
+    if(myAuth==="true"){
+        return(<Box>
+
+            <NavBar></NavBar>
+    `       <Main>
+                 <Typography variant="h3" class ="MainButton" component={Link} to={"/shop"}>
+                     View your Products
+                 </Typography>
+         </Main>
+        </Box>)
+    }else{
+        return(<Box>
+
+            <NavBar></NavBar>
+    `       <Main>
+                 <Typography variant="h3" class ="MainButton" component={Link} to={"/auth"}>
+                     Sign in to view products
+                 </Typography>
+         </Main>
+        </Box>)
+    }
 }
 
 export {Home}
