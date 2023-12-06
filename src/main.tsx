@@ -1,24 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-// import App from './App.tsx'
-import { NavBar } from './components/NavBar/NavBar.tsx'
-
-// import { Home } from './components/Home/index.ts'
-import { Shop } from './components/Shop/index.ts'
 import { Route,Routes,BrowserRouter } from 'react-router-dom'
+import {firebaseConfig} from "./firebaseConfig.ts"
+import { FirebaseAppProvider } from 'reactfire'
+
+// internal imports
+import { Shop } from './components/Shop/index.ts'
 import { Home } from './components/Home/Home.tsx'
+import { Auth } from './components/index.ts'
 
 
   ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+
      <BrowserRouter>
       <Routes>
           <Route index element={<Home />} />
           <Route path="/" element={<Home/>}/>
           <Route path="/home" element={<Home/>}/>
           <Route path="/shop" element={<Shop username={"Connor"}/>}/>
+          <Route path ="/auth" element={<Auth headerText={"Connor"}/>}/>
       </Routes>
      </BrowserRouter>
+           
+    </FirebaseAppProvider>
   </React.StrictMode>,
 )
 

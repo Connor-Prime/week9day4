@@ -2,9 +2,9 @@ import * as _React from 'react';
 import styled from 'styled-components';
 import "../../../static/css/main.css";
 import { Box } from '@mui/system';
-
+import { getAuth } from 'firebase/auth';
 // internal inputs
-import { NavBar } from '../NavBar';
+import { NavBar } from '../sharedComponents/NavBar';
 
 
 interface Props{
@@ -17,11 +17,13 @@ const ShopMain=styled('div')({
 })
 
 export const Shop = (props:Props) =>{
+   let auth = getAuth()
+
     return(
         <Box>
             <NavBar></NavBar>
             <ShopMain>
-                <h1>Welcome to your Shop {props["username"]}</h1>
+                <h1>Welcome to your Shop</h1>
             </ShopMain>
         </Box>
   

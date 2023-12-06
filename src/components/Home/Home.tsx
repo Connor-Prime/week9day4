@@ -1,10 +1,9 @@
 import * as _React from 'react';
 import styled from 'styled-components';
 import "../../../static/css/main.css";
-import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import {Typography,Box} from '@mui/material';
-import { NavBar } from '../NavBar';
+import { NavBar } from '../sharedComponents/NavBar';
 
 
 const Main=styled('div')({

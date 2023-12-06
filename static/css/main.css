@@ -1,7 +1,8 @@
 body{
     background-image: url("../../assets/images/shopImage.jpg");
     background-repeat: no-repeat;
-    background-size: 100vw;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .main-header{
