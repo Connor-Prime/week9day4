@@ -25,7 +25,6 @@ import {
 
     // internal imports
 import { NavBar, InputText, InputPassword } from '../sharedComponents'
-import { padding } from "@mui/system"
 
 const authStyles = {
 

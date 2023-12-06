@@ -28,13 +28,14 @@ const NavStyle=styled('div')({
 export const NavBar = () =>{
     const myAuth = localStorage.getItem('auth') // ADD THIS
     const auth = getAuth(); // ADD THIS
+    const navigate= useNavigate()
 
     const signInButton = async () => {
-        const navigate= useNavigate()
-        
+
+
         if (myAuth === 'false') {
             navigate('/auth')
-        } else {
+        } else { 
             await signOut(auth)
             localStorage.setItem('auth', 'false')
             localStorage.setItem('user', '')
@@ -46,7 +47,7 @@ export const NavBar = () =>{
 
     let signInText="Sign In"
 
-    if(myAuth==="false"){
+    if(myAuth==="true"){
         signInText="Sign Out"
     }
 
@@ -60,7 +61,7 @@ export const NavBar = () =>{
             </Box>
 
             <Box sx={{marginRight:"10%"}}>
-                <Button onClick={signInButton}>
+                <Button variant='contained' onClick={signInButton}>
                     {signInText}
                 </Button>
                 <Typography >

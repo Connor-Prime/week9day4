@@ -2,7 +2,7 @@ import * as _React from 'react';
 import styled from 'styled-components';
 import "../../../static/css/main.css";
 import { Box } from '@mui/system';
-import { getAuth } from 'firebase/auth';
+
 // internal inputs
 import { NavBar } from '../sharedComponents/NavBar';
 
@@ -17,7 +17,6 @@ const ShopMain=styled('div')({
 })
 
 export const Shop = (props:Props) =>{
-   let auth = getAuth()
 
     return(
         <Box>
