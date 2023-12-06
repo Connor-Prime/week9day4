@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { Typography } from '@mui/material';
 
 const NavStyle=styled('div')({
-    backgroundColor:"black",
+    backgroundColor:"peachpuff",
     width:"100%",
     height:"5em",
     paddingLeft:"5%",
@@ -18,7 +18,7 @@ export const NavBar = () =>{
     return(
         
         <NavStyle>
-            <Typography className="main-header" component={Link} to={"/home"}>
+            <Typography variant='h4' className="main-header" component={Link} to={"/home"}>
                     Caffenated Co.
             </Typography>
           

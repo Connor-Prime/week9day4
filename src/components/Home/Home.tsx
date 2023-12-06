@@ -13,17 +13,16 @@ const Main=styled('div')({
     marginTop:"15%"
 })
 
+
+
 const Home = () =>{
     return(<Box>
 
         <NavBar></NavBar>
 `       <Main>
-         
-         <Button className='btn-color'>
-             <Typography variant="h3" className="main-header" component={Link} to={"/shop"}>
+             <Typography variant="h3" class ="MainButton" component={Link} to={"/shop"}>
                  View our Products
              </Typography>
-         </Button>
      </Main>
     </Box>
             
