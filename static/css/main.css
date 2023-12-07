@@ -38,3 +38,33 @@ body{
     border: solid green 5px;
     color: green;
 }
+
+.item-area{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.item-card{
+    padding-top: 3vh;
+    background-color: peachpuff;
+    width: 25%;
+    margin: 3%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.item-card>*{
+    margin: 8px;
+}
+
+
+
+.item-image{
+    width:20vw;
+    height: 20vw;
+}

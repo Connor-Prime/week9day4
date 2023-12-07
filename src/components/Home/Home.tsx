@@ -20,8 +20,8 @@ const Home = () =>{
 
             <NavBar></NavBar>
     `       <Main>
-                 <Typography variant="h3" class ="MainButton" component={Link} to={"/shop"}>
-                     View your Products
+                 <Typography variant="h3" className ="MainButton" component={Link} to={"/shop"}>
+                     View our Products
                  </Typography>
          </Main>
         </Box>)
@@ -30,7 +30,7 @@ const Home = () =>{
 
             <NavBar></NavBar>
     `       <Main>
-                 <Typography variant="h3" class ="MainButton" component={Link} to={"/auth"}>
+                 <Typography variant="h3" className ="MainButton" component={Link} to={"/auth"}>
                      Sign in to view products
                  </Typography>
          </Main>
