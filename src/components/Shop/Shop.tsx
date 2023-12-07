@@ -41,21 +41,22 @@ const AddToCart = (cart:CartProps) =>{
     const [message,setMessage]=useState<string>()
     const [messageType, setMessageType]= useState<MessageType>()
     const { register, handleSubmit } = useForm<SubmitProps>({})
-    let myCart = cart.cartItem
+    let myCart:ShopProps = cart.cartItem
 
     const onSubmit:SubmitHandler<SubmitProps>=async(data:SubmitProps, event)=>{
-        if(event) event.preventDefault;
+        if(event) 
+        event.preventDefault
 
         const userId = localStorage.getItem('uuid') //grabbing the user id from localstorage 
         const cartRef = ref(db, `carts/${userId}/`) // this is where we are pathing in our database 
 
         if(myCart.quantity>parseInt(data.quantity)){
-            myCart.quantity= parseInt(data.quantity)
+            myCart.quantity = parseInt(data.quantity)
         }
 
         push(cartRef,myCart)
         .then((newCartRef)=>{
-            setMessage(`Successfully added ${data.quantity} ${myCart.name} to Cart.`)
+            setMessage(`Successfully added ${data.quantity} ${myCart.name}(s) to Cart.`)
             setMessageType('success')
             setOpen(true)
         }).then(()=>{
@@ -127,7 +128,14 @@ export const Shop = (props:Props) =>{
                             <img src={product.image} className='item-image' />
                             <Typography variant='h5'>{product.name}</Typography>
                             <Typography variant='h5'>${product.price}</Typography>
-                            <Button variant="contained" sx={{margin:"3vh"}}>Order Now</Button>
+
+                            <Button
+                                    size='medium'
+                                    variant="contained"
+                                    onClick = {()=>{ setCurrentShop(product) ; setCartOpen(true)}}
+                                >
+                                    Add to Cart - ${parseFloat(product.price).toFixed(2)}
+                                </Button>
                         </Box>
                     ))
                 }

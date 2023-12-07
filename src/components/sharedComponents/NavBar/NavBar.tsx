@@ -22,7 +22,15 @@ const NavStyle=styled('div')({
 })
 
 
-
+const CarLink = (auth:boolean) =>{
+    if(auth){
+        return(
+        <Typography variant='h3' component={Link} to={"/cart"}>
+            Got to Cart
+        </Typography>
+        )
+    }
+}
 
 
 export const NavBar = () =>{
@@ -57,6 +65,9 @@ export const NavBar = () =>{
             <Box>
                 <Typography variant='h4' className="main-header" component={Link} to={"/home"}>
                         Caffenated Co.
+                </Typography>
+                <Typography variant='h4' className="main-header"  component={Link} to={"/cart"}>
+                    {myAuth === 'true' ? 'Cart' : ''}
                 </Typography>
             </Box>
 

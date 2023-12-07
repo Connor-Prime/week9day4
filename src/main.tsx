@@ -8,7 +8,7 @@ import { FirebaseAppProvider } from 'reactfire'
 import { Shop } from './components/Shop/index.ts'
 import { Home } from './components/Home/Home.tsx'
 import { Auth } from './components/index.ts'
-
+import { Cart } from './components/Cart/Cart.tsx'
 
   ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -21,6 +21,7 @@ import { Auth } from './components/index.ts'
           <Route path="/home" element={<Home/>}/>
           <Route path="/shop" element={<Shop username={"Connor"}/>}/>
           <Route path ="/auth" element={<Auth headerText={"Connor"}/>}/>
+          <Route path="/cart" element={<Cart/>}/>
       </Routes>
      </BrowserRouter>
            
