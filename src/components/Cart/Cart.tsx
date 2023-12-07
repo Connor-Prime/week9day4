@@ -47,16 +47,15 @@ export const Cart = () => {
             return () => {
                 off(cartRef)
             }
-        })
+        },[])
             // Update Cart
         const updateQuantity = async (id: string, operation: string) => {
     
                  // findIndex method to find the index of a value based on a conditional
         const dataIndex = currentCart?.findIndex((cart) => cart.id === id) //stores the index of the item it finds
 
-            console.log(id)
         // make a new variable for our currentCart 
-        const updatedCart = [...currentCart]
+        const updatedCart = [...currentCart as ShopProps[]]
         if (operation === 'dec'){
             updatedCart[dataIndex as number].quantity -= 1
         } else {
@@ -139,7 +138,7 @@ export const Cart = () => {
                                     <Button
                                         size='medium'
                                         variant='contained'
-                                        onClick = {()=>{updateQuantity(cart.id,"dec")}}
+                                        onClick = {()=>{updateQuantity(cart.id ,"dec")}}
                                     >
                                         -
                                     </Button>
@@ -149,7 +148,7 @@ export const Cart = () => {
                                     <Button
                                         size='medium'
                                         variant='contained'
-                                        onClick={()=>{updateQuantity(cart.id, 'inc')}}
+                                        onClick={()=>{updateQuantity(cart.id , 'inc')}}
                                     >
                                         +
                                     </Button>
