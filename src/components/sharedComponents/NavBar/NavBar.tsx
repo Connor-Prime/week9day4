@@ -22,16 +22,6 @@ const NavStyle=styled('div')({
 })
 
 
-const CarLink = (auth:boolean) =>{
-    if(auth){
-        return(
-        <Typography variant='h3' component={Link} to={"/cart"}>
-            Got to Cart
-        </Typography>
-        )
-    }
-}
-
 
 export const NavBar = () =>{
     const myAuth = localStorage.getItem('auth') // ADD THIS

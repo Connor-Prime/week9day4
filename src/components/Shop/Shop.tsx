@@ -23,9 +23,9 @@ import { useGetShop, ShopProps } from '../../customHooks';
 import { InputText } from '../sharedComponents';
 
 
-interface Props{
-    username:string
-}
+// interface Props{
+//     username:string
+// }
 
 export interface SubmitProps{
     quantity:string
@@ -55,7 +55,7 @@ const AddToCart = (cart:CartProps) =>{
         }
 
         push(cartRef,myCart)
-        .then((newCartRef)=>{
+        .then((_newCartRef)=>{
             setMessage(`Successfully added ${data.quantity} ${myCart.name}(s) to Cart.`)
             setMessageType('success')
             setOpen(true)
@@ -107,7 +107,7 @@ const ShopHeader=styled('div')({
     backgroundColor:"white"
 })
 
-export const Shop = (props:Props) =>{
+export const Shop = () =>{
 
     const {shopData} = useGetShop()
     const [ cartOpen, setCartOpen ] = useState(false); 

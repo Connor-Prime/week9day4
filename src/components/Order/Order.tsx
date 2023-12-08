@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as _React from 'react';
 import { DataGrid, GridColDef, GridRowSelectionModel } from '@mui/x-data-grid';
 import { ShopProps, useGetOrder } from '../../customHooks';
 import { useEffect, useState } from 'react';
@@ -173,7 +173,7 @@ export default function Orders() {
 
         const response = await serverCalls.deleteOrder(orderId,deleteData)
 
-        if(response.ok){
+        if(response.status==200){
             setMessage('Order Deleted');
             setMessageType('success');
             setOpen(true)

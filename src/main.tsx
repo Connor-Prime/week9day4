@@ -19,7 +19,7 @@ import { Cart } from './components/Cart/Cart.tsx'
           <Route index element={<Home />} />
           <Route path="/" element={<Home/>}/>
           <Route path="/home" element={<Home/>}/>
-          <Route path="/shop" element={<Shop username={"Connor"}/>}/>
+          <Route path="/shop" element={<Shop/>}/>
           <Route path ="/auth" element={<Auth headerText={"Connor"}/>}/>
           <Route path="/cart" element={<Cart/>}/>
       </Routes>

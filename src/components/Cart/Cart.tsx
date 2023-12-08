@@ -174,7 +174,7 @@ export const Cart = () => {
                                     Delete Item
                                 </Button>
                             
-                                <Box>
+                                <Box sx={{display:"flex",flexDirection:"row"}}>
                                     <Button
                                         size='medium'
                                         variant='contained'
@@ -182,17 +182,26 @@ export const Cart = () => {
                                     >
                                         -
                                     </Button>
-                                    <Typography>
+                                    <Typography sx={{padding:"1vw"}}>
                                         {cart.quantity}
                                     </Typography>
                                     <Button
                                         size='medium'
                                         variant='contained'
+                                        sx={{marginLight:"10vw"}}
                                         onClick={()=>{updateQuantity(cart.id , 'inc')}}
                                     >
                                         +
                                     </Button>
                                 </Box>
+                                <Button
+                                            size='medium'
+                                            variant='outlined'
+                   
+                                            onClick={() => { updateCart(cart) }}
+                                        >
+                                            Update Quantity = ${(cart.quantity * parseFloat(cart.price)).toFixed(2)}
+                                        </Button>
 
                         </Box>
                     ))
