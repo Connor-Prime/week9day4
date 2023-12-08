@@ -39,3 +39,26 @@ export const useGetShop = (): GetShopDataProps=>{
     return { shopData, getData: handleDataFetch }
 
 }
+export interface GetOrderDataProps {
+    orderData: ShopProps[]
+    getData: () => void
+}
+
+
+export const useGetOrder = (): GetOrderDataProps=>{
+    const [orderData, setOrderData]=useState<ShopProps[]>([])
+
+    const handleDataFetch = async () =>{
+        const result = await serverCalls.getOrder()
+
+        setOrderData(result)
+    }
+    // useEffect is essentially an event listener listening for changes to variables 
+    // takes 2 arguments, 1 is the function to run, the 2nd is the variable we are watching in a []
+    useEffect(()=> {
+        handleDataFetch()
+    }, []) //[] inside list is variable we are watching/listening to for changes 
+
+    return { orderData, getData: handleDataFetch }
+
+}

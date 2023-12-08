@@ -63,12 +63,13 @@ export const NavBar = () =>{
         
         <NavStyle>
             <Box>
-                <Typography variant='h4' className="main-header" component={Link} to={"/home"}>
-                        Caffenated Co.
+                <Typography variant='h4' className="main-header" sx={{marginRight:5}} component={Link} to={"/home"}>
+                    Caffenated Co.
                 </Typography>
-                <Typography variant='h4' className="main-header"  component={Link} to={"/cart"}>
-                    {myAuth === 'true' ? 'Cart' : ''}
-                </Typography>
+                {myAuth ==='true' ? (<Typography variant='h4' className="main-header"  sx={{marginRight:5}} component={Link} to={"/shop"}>Shop</Typography>):(" ")}
+                
+                {myAuth ==='true' ? (<Typography variant='h4' className="main-header"  component={Link} to={"/cart"}>Cart</Typography>):(" ")}
+
             </Box>
 
             <Box sx={{marginRight:"10%"}}>

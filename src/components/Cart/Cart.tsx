@@ -3,14 +3,22 @@ import { useEffect, useState } from "react";
 
 
 import { MessageType } from "..";
-import { ShopProps } from "../../customHooks";
+import { ShopProps} from "../../customHooks";
 import { Box } from "@mui/system";
 import { NavBar } from "../sharedComponents";
-import {Button,Typography} from "@mui/material";
+import {Alert, Button,Snackbar,Typography} from "@mui/material";
+import { serverCalls } from "../../api";
+import Orders from "../Order/Order";
 
 
 
+// make an interface for what our data needs to look like when we checkout
 
+export interface CreateOrderProps {
+    order: ShopProps[]
+}
+
+const reload=()=>{setTimeout(()=>window.location.reload(),2000)}
 
 
 export const Cart = () => {
@@ -81,7 +89,7 @@ export const Cart = () => {
                 setOpen(true)
             })
             .then(() => {
-                setTimeout(() => window.location.reload(), 2000)
+                reload()
             })
             .catch((error) => {
                 setMessage(error.message)
@@ -113,10 +121,42 @@ export const Cart = () => {
                 setOpen(true)
             })
         }
-    
+
+        const checkOut = async()=>{
+
+            const data: CreateOrderProps  = {
+                'order': currentCart as ShopProps[]
+            }
+
+            const response = await serverCalls.createOrder(data);
+            
+                if(response.status==200){
+                    remove(cartRef).then(()=>{
+                        console.log("Cart cleared successfully")
+                        setMessage('Successfully Checkout')
+                        setMessageType('success')
+                        setOpen(true)
+                        reload()
+                    }).catch((error) => {
+                        console.log("Error clearing cart: " + error.message)
+                        setMessage(error.message)
+                        setMessageType('error')
+                        setOpen(true)
+                        reload()
+                    })
+                }else{
+                    setMessage('Error with your Checkout')
+                    setMessageType('error')
+                    setOpen(true)
+                    reload()
+                }
+            
+            }
+            
     return(
         <Box>
             <NavBar></NavBar>
+            <Button variant="contained" sx={{fontSize:"1.5em"}} onClick={checkOut}>Checkout</Button>
             <div className='item-area'>
                 {
                     currentCart?.map((cart: ShopProps)=>(
@@ -153,11 +193,22 @@ export const Cart = () => {
                                         +
                                     </Button>
                                 </Box>
-  
+
                         </Box>
                     ))
                 }
+                <Orders></Orders>
+          
             </div>
+            <Snackbar
+                open={open}
+                autoHideDuration={2000}
+                onClose={()=> setOpen(false)}
+            >
+                <Alert severity = {messageType}>
+                    {message}
+                </Alert>
+            </Snackbar>
         </Box>
     )    
 }
